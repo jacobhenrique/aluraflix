@@ -41,3 +41,20 @@ body > img {
 img {
   max-height: 250px;
 }
+button {
+  color: #ffffff;
+  background-color: red;
+  font-size: 13px;
+  border-radius: 30px;
+  margin-top: 15px;
+}
+.cadastrar {
+  background-color: darkblue;
+}
+.erro {
+  color: red;
+  font-size: 16px;
+}
+cadastroFormulario {
+  display: inline-block;
+}

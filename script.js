@@ -5,17 +5,33 @@ var listaFilmes = [
   "https://br.web.img2.acsta.net/medias/nmedia/18/91/08/82/20128877.JPG",
   "https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/92/91/32/20224832.jpg"
 ];
+
 exibeFilmes();
 
 function exibeFilmes() {
+  var filmes = document.getElementById("listaExibeFilmes");
   for (var indice = 0; indice < listaFilmes.length; indice++) {
-    document.write("<img src=" + listaFilmes[indice] + ">");
+    document.body.innerHTML += "<img src=" + listaFilmes[indice] + ">";
   }
 }
 
 function cadastraFilme() {
   var novoFilme = document.getElementById("linkFilme").value;
-  listaFilmes.push(novoFilme);
-  console.log(listaFilmes);
-  exibeFilmes();
+
+  if (novoFilme.endsWith(".jpg")) {
+    listaFilmes.push(novoFilme);
+    exibeFilmes();
+  } else {
+    var erroFilme = document.getElementById("erro");
+    erroFilme.innerHTML =
+      "O sistema somente aceita extensões .jpg, favor insIra uma imagem válida!";
+
+    document.getElementById("linkFilme").value = "";
+  }
+}
+function removeFilme() {
+  listaFilmes.pop();
+}
+function limpaCampo() {
+  document.getElementById("linkFilme").value = "";
 }
